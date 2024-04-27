@@ -1,0 +1,41 @@
+XML:
+
+<?xml version="1.0"?>
+<company xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ex5.xsd">
+	<name>Sorensen Electrical Wholesalers</name>
+	<address>265 Partin lane</address>
+	<city>Hamilton</city>
+	<region>Waikato</region>
+	<phone>(07)855-6897</phone>
+	<product>
+		<code>RPS-0865478-MAC-123-097</code>
+		<name>16mm Shielded Cable</name>
+	</product>
+</company>
+
+
+
+XSL:
+
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="company">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="address" type="xsd:string"/>
+			<xsd:element name="city" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="region" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="phone" pattern value="\([0-9]{3}\)-[0-9]{3}-[0-9]{3}"/>
+			<xsd:element name="product">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="code" type="xsd:string"/>
+						<xsd:element name="name" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:element>
+</xsd:schema>
